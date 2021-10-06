@@ -1,11 +1,20 @@
 public class Week4 {
+  /*-----------*/
+  /* FIBONACCI */
+  /*-----------*/
+  /* The Fibonacci sequence is defined as follows:
+       fib(0) = 1
+       fib(1) = 1
+       fib(n) = fib(n-2) + fib(n-1)
 
-  // fib(0) = 1
-  // fib(1) = 1
-  // fib(2) = fib(1) + fib(0) = 2
-  // fib(3) = fib(2) + fib(1) = 3
-  // fib(4) = fib(3) + fib(2) = 5
-  // ...
+     Some examples are:
+       fib(0) = 1
+       fib(1) = 1
+       fib(2) = fib(1) + fib(0) = 2
+       fib(3) = fib(2) + fib(1) = 3
+       fib(4) = fib(3) + fib(2) = 5
+  */
+  // Loop version
   public static int fibLoop(int num){
 
     int res = 1;
@@ -19,6 +28,7 @@ public class Week4 {
     return res;
   }
 
+  // Recursive version
   public static int fibRec(int num){
     if (num < 2){
       return 1;
@@ -28,6 +38,7 @@ public class Week4 {
     }
   }
 
+  // Loop version of factorial calculation
   public static int factLoop(int num){
     int res = 1;
     while (num > 1){
@@ -36,6 +47,8 @@ public class Week4 {
     }
     return res;
   }
+
+  // Recursive version of factorial calculation
   public static int factRec(int num){
     if (num == 1){
       return 1;
@@ -45,6 +58,8 @@ public class Week4 {
     }
   }
 
+  // takes string as input, outputs length as int
+  // recursive
   public static int myLength(String str){
     if (str.equals("")){
       return 0;
@@ -54,6 +69,8 @@ public class Week4 {
     }
   }
 
+  // takes string as input, outputs reversed string
+  // recursive
   public static String revStr(String str){
     if (str.equals("")){
       return "";
@@ -64,24 +81,26 @@ public class Week4 {
   }
 
   public static void main(String args[]){
-    System.out.println("fact(" + 7 + ") = " + factRec(7));
+    // test two different fact methods
+    System.out.println("Rec:  fact(" + 7 + ") = " + factRec(7));
 
-    System.out.println("fact(" + 7 + ") = " + factLoop(7));
+    System.out.println("Loop: fact(" + 7 + ") = " + factLoop(7));
 
-    System.out.println("" + fibRec(1) + fibRec(2) + fibRec(3) +
-                            fibRec(4) + fibRec(5) + fibRec(6));
+    // test two different fib methods
+    System.out.println("Here are the first 6 Fibonacci numbers");
+    System.out.println("Rec: " + fibRec(1) + ", " + fibRec(2) + ", " + fibRec(3) + ", " +
+                                 fibRec(4) + ", " + fibRec(5) + ", " + fibRec(6));
 
-    System.out.println("" + fibLoop(1) + fibLoop(2) + fibLoop(3) +
-                            fibLoop(4) + fibLoop(5) + fibLoop(6));
+    System.out.println("Loop: " + fibLoop(1) + ", " + fibLoop(2) + ", " + fibLoop(3) + ", " +
+                                  fibLoop(4) + ", " + fibLoop(5) + ", " + fibLoop(6));
 
-    String inputStr = "hejmeddigjeghedderkaj";
-    //String inputStr = args[0];
-
-    int result1 = myLength(inputStr);
-    System.out.println(result1);
+    String inputStr = "hej med dig";
+    // test length
+    int result1 = myLength(inputStr) ;
+    System.out.println("myLength, expected: " + inputStr.length() + ", actual: " + result1);
 
     String result2 = revStr(inputStr);
-    System.out.println(result2);
+    System.out.println("revStr: " + result2);
   }
 }
 
